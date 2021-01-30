@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 public class UserRegisrationSystem {
 	String regexfname="^[A-Z]{1}[a-z]+$";
+	String regexlname="^[A-Z]{1}[a-z]+$";
 	
 	public static void main(String[] args) 
 	{
