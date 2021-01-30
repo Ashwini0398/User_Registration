@@ -7,7 +7,8 @@ import java.util.regex.Pattern;
 public class UserRegisrationSystem {
 	String regexfname="^[A-Z]{1}[a-z]+$";
 	String regexlname="^[A-Z]{1}[a-z]+$";
-	
+	String regexemail="^([a-zA-Z0-9]*[+._-]*[a-zA-Z0-9]+@[a-zA-Z]+.{3}[a-zA-z.]*[a-zA-z]{2})+$";
+	String regexmobileno="^[+]{1}[9][1][ ][6-9]{1}[0-9]{9}$";
 	public static void main(String[] args) 
 	{
 		UserRegisrationRegex ob1 = new UserRegisrationRegex();
@@ -21,6 +22,12 @@ public class UserRegisrationSystem {
 			{
 			case 1: 
 				ob1.Name();   
+				break;
+			case 2:
+				ob1.mail();
+				break;
+			case 3:
+				ob1.Mobileno();
 				break;
 			default:
 				System.out.println("you have entered the wrong choice");
@@ -61,6 +68,40 @@ public class UserRegisrationSystem {
 		}
 
 		m.matches();
+		}
+	}
+	public void mail()
+	{
+		Scanner s2 = new Scanner(System.in);
+		System.out.println("enter the email of the user");
+		String email = s2.nextLine();
+		Pattern p = Pattern.compile(regexemail);
+		Matcher m= p.matcher(email);
+		boolean val =m.matches();
+		if(val == true)
+		{
+			System.out.println("valid");
+		}
+		else
+		{
+			System.out.println("invalid");
+		}
+	}
+	public void Mobileno()
+	{
+		Scanner s3 = new Scanner(System.in);
+		System.out.println("enter the mobile number of the user");
+		String mno = s3.nextLine();
+		Pattern p = Pattern.compile(regexmobileno);
+		Matcher m= p.matcher(mno);
+		boolean val =m.matches();
+		if(val == true)
+		{
+			System.out.println("valid");
+		}
+		else
+		{
+			System.out.println("invalid");
 		}
 	}
 
