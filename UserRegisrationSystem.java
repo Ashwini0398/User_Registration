@@ -10,7 +10,9 @@ public class UserRegisrationSystem {
 	String regexlname="^[A-Z]{1}[a-z]+$";
 	String regexemail="^([a-zA-Z0-9]*[+._-]*[a-zA-Z0-9]+@[a-zA-Z]+.{3}[a-zA-z.]*[a-zA-z]{2})+$";
 	String regexmobileno="^[+]{1}[9][1][ ][6-9]{1}[0-9]{9}$";
-	String regexpassword1="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+	String regexpassword1="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"; //minimum 8 character
+	String regexpassword2="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";   ////users password  Rule2  minimum 8 character at least one letter, one number and one special character:
+
 
 	public static void main(String[] args) 
 	{
@@ -130,6 +132,21 @@ public class UserRegisrationSystem {
 		{
 			System.out.println("invalid");
 		}
+
+		System.out.println("enter the password of the user rule2");
+		String pword2 = s4.nextLine();
+		Pattern p1 = Pattern.compile(regexpassword2);
+		Matcher m1= p1.matcher(pword2);
+		boolean val2 =m1.matches();
+		if(val2 == true)
+		{
+			System.out.println("valid");
+		}
+		else
+		{
+			System.out.println("invalid");
+		}
+		
 	}
 
 }
