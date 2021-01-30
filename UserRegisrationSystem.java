@@ -44,6 +44,23 @@ public class UserRegisrationSystem {
 		{
 			System.out.println("invalid");
 		}
-	}
-}
 
+		System.out.println("enter the last name of the user");
+		String lname = s1.nextLine();
+		Pattern p1 = Pattern.compile(regexlname);
+		Matcher m1= p1.matcher(lname);
+		boolean val2 = m1.matches();
+		if(val2 == true)
+		{
+			System.out.println("valid");
+		}
+		else
+		{
+			System.out.println("invalid");
+		}
+
+		m.matches();
+		}
+	}
+
+}
