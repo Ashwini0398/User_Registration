@@ -186,5 +186,5 @@ public class UserRegisrationSystem {
 			System.out.println("invalid");
 		}	
 	}
-
+ 
 }
