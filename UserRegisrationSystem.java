@@ -38,6 +38,16 @@ public class UserRegisrationSystem {
 			case 4:
 				ob1.Password();
 				break;
+			case 5:
+				//user sample email address check valid or not
+				int UserInput=0;
+				System.out.println("check the email entered valid or not");
+				while(UserInput==0)
+				{
+					ob1.mail();
+					System.out.println("Do you want to check the email valid or not \n 0) to check or press any key to enter");
+					UserInput = s.nextInt();
+				}
 			default:
 				System.out.println("you have entered the wrong choice");
 				break;
