@@ -13,7 +13,7 @@ public class UserRegisrationSystem {
 	String regexpassword1="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"; //minimum 8 character
 	String regexpassword2="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";   ////users password  Rule2  minimum 8 character at least one letter, one number and one special character:
 	String regexpassword3 = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"; //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
-	
+	String regexpassword4="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$";//Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character	
 
 	public static void main(String[] args) 
 	{
@@ -161,7 +161,20 @@ public class UserRegisrationSystem {
 		{
 			System.out.println("invalid");
 		}
-		
+	
+		System.out.println("enter the password of the user rule4");
+		String pword4 = s4.nextLine();
+		Pattern p4 = Pattern.compile(regexpassword4);
+		Matcher m4= p4.matcher(pword4);
+		boolean val4 =m4.matches();
+		if(val4 == true)
+		{
+			System.out.println("valid");
+		}
+		else
+		{
+			System.out.println("invalid");
+		}	
 	}
 
 }
