@@ -4,7 +4,19 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+class InvalidEntryException extends Exception       //created the parent class for User defined exception
+{
+    public InvalidEntryException(String s)
+    {
+        // Call constructor of parent Exception
+        super(s);
+    }
+}
+
+
 public class UserRegisrationSystem {
+
+	 Scanner s1 = new Scanner(System.in);
 
 	String regexfname="^[A-Z]{1}[a-z]+$";
 	String regexlname="^[A-Z]{1}[a-z]+$";
@@ -26,28 +38,69 @@ public class UserRegisrationSystem {
 		int input = s.nextInt();
 			switch(input)
 			{
-			case 1: 
-				ob1.Name();   
+				case 1: 
+				try
+				{
+					ob1.Name();
+				}
+				catch(InvalidEntryException e)
+				{
+					System.out.println(e);
+				}
 				break;
+				
 			case 2:
-				ob1.mail();
+				try
+				{
+					ob1.mail();
+				}
+				catch(InvalidEntryException e)
+				{
+					System.out.println(e);
+				}
 				break;
 			case 3:
-				ob1.Mobileno();
+				try
+				{
+					ob1.Mobileno();
+				}
+				catch(InvalidEntryException e)
+				{
+					System.out.println(e);
+				}
 				break;
+				
 			case 4:
-				ob1.Password();
+				try
+				{
+					ob1.Password();
+				}
+				catch(InvalidEntryException e)
+				{
+					System.out.println(e);
+				}
 				break;
+				
 			case 5:
 				//user sample email address check valid or not
+
 				int UserInput=0;
 				System.out.println("check the email entered valid or not");
 				while(UserInput==0)
-				{
+				{	
+					try
+					{
 					ob1.mail();
 					System.out.println("Do you want to check the email valid or not \n 0) to check or press any key to enter");
 					UserInput = s.nextInt();
+					}
+					catch(InvalidEntryException e)
+					{
+						System.out.println(e);
+					}
 				}
+				break;
+
 			default:
 				System.out.println("you have entered the wrong choice");
 				break;
@@ -55,10 +108,9 @@ public class UserRegisrationSystem {
 		}
 	}
 
-	public void Name()
+	public void Name() throws InvalidEntryException       //declared the exception to the method
 	{
 		
-		Scanner s1 = new Scanner(System.in);
 		System.out.println("enter the first name of the user");
 		String fname = s1.nextLine();
 		Pattern p = Pattern.compile(regexfname);
@@ -70,7 +122,7 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
+			throw new InvalidEntryException("invalid: "+fname);        //thrown the exception
 		}
 
 		System.out.println("enter the last name of the user");
@@ -84,18 +136,14 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
-		}
-
-		m.matches();
+			throw new InvalidEntryException("invalid: "+lname);
 		}
 	}
 
-	public void mail()
+	public void mail() throws InvalidEntryException       //declared the exception to the method
 	{
-		Scanner s2 = new Scanner(System.in);
 		System.out.println("enter the email of the user");
-		String email = s2.nextLine();
+		String email = s1.nextLine();
 		Pattern p = Pattern.compile(regexemail);
 		Matcher m= p.matcher(email);
 		boolean val =m.matches();
@@ -105,15 +153,13 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
-		}
+			throw new InvalidEntryException("invalid: "+email);		}
 	}
 
-	public void Mobileno()
+	public void Mobileno() throws InvalidEntryException       //declared the exception to the method
 	{
-		Scanner s3 = new Scanner(System.in);
 		System.out.println("enter the mobile number of the user");
-		String mno = s3.nextLine();
+		String mno = s1.nextLine();
 		Pattern p = Pattern.compile(regexmobileno);
 		Matcher m= p.matcher(mno);
 		boolean val =m.matches();
@@ -123,15 +169,14 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
+			 throw new InvalidEntryException("invalid: "+mno);
 		}
 	}
 	
-	public void Password()
+	public void Password() throws InvalidEntryException       //declared the exception to the method
 	{
-		Scanner s4 = new Scanner(System.in);
 		System.out.println("enter the password of the user");
-		String pword = s4.nextLine();
+		String pword = s1.nextLine();
 		Pattern p = Pattern.compile(regexpassword1);
 		Matcher m= p.matcher(pword);
 		boolean val =m.matches();
@@ -141,11 +186,11 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
+			throw new InvalidEntryException("invalid: "+pword);
 		}
 
 		System.out.println("enter the password of the user rule2");
-		String pword2 = s4.nextLine();
+		String pword2 = s1.nextLine();
 		Pattern p1 = Pattern.compile(regexpassword2);
 		Matcher m1= p1.matcher(pword2);
 		boolean val2 =m1.matches();
@@ -155,11 +200,11 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
+			throw new InvalidEntryException("invalid: "+pword2);
 		}
 
 		System.out.println("enter the password of the user rule3");
-		String pword3 = s4.nextLine();
+		String pword3 = s1.nextLine();
 		Pattern p3 = Pattern.compile(regexpassword3);
 		Matcher m3= p3.matcher(pword3);
 		boolean val3 =m3.matches();
@@ -169,11 +214,11 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
+			throw new InvalidEntryException("invalid: "+pword3);
 		}
 	
 		System.out.println("enter the password of the user rule4");
-		String pword4 = s4.nextLine();
+		String pword4 = s1.nextLine();
 		Pattern p4 = Pattern.compile(regexpassword4);
 		Matcher m4= p4.matcher(pword4);
 		boolean val4 =m4.matches();
@@ -183,7 +228,7 @@ public class UserRegisrationSystem {
 		}
 		else
 		{
-			System.out.println("invalid");
+			throw new InvalidEntryException("invalid: "+p4);
 		}	
 	}
  
