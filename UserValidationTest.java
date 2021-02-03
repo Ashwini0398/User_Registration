@@ -13,12 +13,12 @@ public class UserValidationTest {
         public void givenFirstNameValid() {
             boolean result = true;
             try {
-                result = userRegistration.validateFirstName("Ashwini");
+                result = userRegistration.validateFirstName.validate("Ashwini");
                 Assert.assertTrue(result);
             }
-            catch (UserException e)
+            catch (Exception e)
             {
-
+                e.printStackTrace();
             }
 
         }
@@ -27,8 +27,8 @@ public class UserValidationTest {
         public void givenFirstNameInvalid() {
             boolean result = false;
             try {
-                result = userRegistration.validateFirstName("ashwini");
-            } catch (UserException e) {
+                result = userRegistration.validateFirstName.validate("ashwini");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -39,8 +39,8 @@ public class UserValidationTest {
         public void givenLastNameValid() {
             boolean result = true;
             try {
-                result = userRegistration.validateLastName("Khonde");
-            } catch (UserException e) {
+                result = userRegistration.validateLastName.validate("Khonde");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -51,8 +51,8 @@ public class UserValidationTest {
         public void givenLastNameInvalid() {
             boolean result = false;
             try {
-                result = userRegistration.validateLastName("khonde");
-            } catch (UserException e) {
+                result = userRegistration.validateLastName.validate("khonde");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -63,8 +63,8 @@ public class UserValidationTest {
         public void givenEmailValid() {
             boolean result = true;
             try {
-                result = userRegistration.validateEmail("ashwinikhonde03@gmail.com");
-            } catch (UserException e) {
+                result = userRegistration.validateEmail.validate("ashwinikhonde03@gmail.com");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -75,8 +75,8 @@ public class UserValidationTest {
         public void givenEmailInvalid() {
             boolean result = false;
             try {
-                result = userRegistration.validateEmail("ashwinikhonde");
-            } catch (UserException e) {
+                result = userRegistration.validateEmail.validate("ashwinikhonde");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -87,8 +87,8 @@ public class UserValidationTest {
         public void givenMobileNoValid() {
             boolean result = true;
             try {
-                result = userRegistration.validateMobileNo("+91 9437726849");
-            } catch (UserException e) {
+                result = userRegistration.validateMobileno.validate("+91 9437726849");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -99,8 +99,8 @@ public class UserValidationTest {
         public void givenMobileNoInvalid() {
             boolean result = false;
             try {
-                result = userRegistration.validateMobileNo("2928824525");
-            } catch (UserException e) {
+                result = userRegistration.validateMobileno.validate("2928824525");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -111,8 +111,8 @@ public class UserValidationTest {
         public void givenPasswordValid() {
             boolean result = true;
             try {
-                result = userRegistration.validatePassword("A1@12g449");
-            } catch (UserException e) {
+                result = userRegistration.validatePassword.validate("A1@12g449");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
@@ -123,12 +123,13 @@ public class UserValidationTest {
         public void givenPasswordFourInvalid() {
             boolean result = false;
             try {
-                result = userRegistration.validatePassword("dfffds");
-            } catch (UserException e) {
+                result = userRegistration.validatePassword.validate("dfffds");
+            } catch (Exception e) {
 
                 e.printStackTrace();
             }
             Assert.assertFalse(result);
         }
 }
+   
 
