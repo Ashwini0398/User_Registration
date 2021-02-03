@@ -14,54 +14,62 @@ public class UserValidation {
 	String regexpassword4="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$";
 	
 	
-	 public boolean validateFirstName(String FirstName) {
-	        Pattern pattern = Pattern.compile(regexfname);
-	        boolean res = pattern.matcher(FirstName).matches();
-	        return res;
+	  public boolean validateFirstName(String FirstName) throws UserException{
+            try {
+                Pattern pattern = Pattern.compile(regexfname);
+                boolean res = pattern.matcher(FirstName).matches();
+                return res;
+            }
+            catch (Exception e){
+                throw new UserException("invalid entry");
+            }
 
-	    }
+        }
 
-	    public boolean validateLastName(String LastName) {
-	        Pattern pattern = Pattern.compile(regexlname);
-	        boolean res = pattern.matcher(LastName).matches();
-	        return res;
-	    }
+        public boolean validateLastName(String LastName) throws UserException{
+            try {
+                Pattern pattern = Pattern.compile(regexlname);
+                boolean res = pattern.matcher(LastName).matches();
+                return res;
+            }
+            catch (Exception e){
+                throw new UserException("invalid Entry");
+            }
+        }
 
-	    public boolean validateEmail(String Email) {
-	        Pattern pattern = Pattern.compile(regexemail);
-	        boolean res = pattern.matcher(Email).matches();
-	        return res;
-	    }
+        public static boolean validateEmail(String Email) throws UserException{
+            try {
+                Pattern pattern = Pattern.compile(regexemail);
+                boolean res = pattern.matcher(Email).matches();
+                return res;
+            }
+            catch (Exception e){
+                throw new UserException("invalid Entry");
+            }
+        }
 
-	    public boolean validateMobileNo(String MobileNo) {
-	        Pattern pattern = Pattern.compile(regexmobileno);
-	        boolean res = pattern.matcher(MobileNo).matches();
-	        return res;
-	    }
+        public boolean validateMobileNo(String MobileNo) throws UserException{
+            try {
+                Pattern pattern = Pattern.compile(regexmobileno);
+                boolean res = pattern.matcher(MobileNo).matches();
+                return res;
+            }
+            catch (Exception e){
+                throw new UserException("invalid Entry");
+            }
+        }
 
-	    public boolean validatePassword1(String Password1) {
-	        Pattern pattern = Pattern.compile(regexpassword1);
-	        boolean res = pattern.matcher(Password1).matches();
-	        return res;
-	    }
 
-	    public boolean validatePassword2(String Password2) {
-	        Pattern pattern = Pattern.compile(regexpassword2);
-	        boolean res = pattern.matcher(Password2).matches();
-	        return res;
-	    }
 
-	    public boolean validatePassword3(String Password3) {
-	        Pattern pattern = Pattern.compile(regexpassword3);
-	        boolean res = pattern.matcher(Password3).matches();
-	        return res;
-	    }
-
-	    public boolean validatePassword4(String Password4) {
-	        Pattern pattern = Pattern.compile(regexpassword4);
-	        boolean res = pattern.matcher(Password4).matches();
-	        return res;
-	    }
-}
-
+        public boolean validatePassword(String Password) throws UserException{
+            try {
+                Pattern pattern = Pattern.compile(regexpassword);
+                boolean res = pattern.matcher(Password).matches();
+                return res;
+            }
+            catch (Exception e){
+                throw new UserException("invalid Entry");
+            }
+        }
+    }
 
