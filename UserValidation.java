@@ -2,7 +2,8 @@ package com;
 
 import java.util.regex.Pattern;
 
-public class UserValidation {
+public class UserValidation
+{
 	
 	String regexfname="^[A-Z]{1}[a-z]+$";
 	String regexlname="^[A-Z]{1}[a-z]+$";
